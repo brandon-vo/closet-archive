@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
 
@@ -13,13 +14,36 @@ const Items: React.FC<ItemsProps> = ({ userID }) => {
   const fetchItems = async () => {
     const supabase = await createClient();
 
-    const { data, error } = await supabase.storage
+    const { data: closetData, error: closetError } = await supabase.storage
       .from("closet")
       .list(userID + "/");
-    if (data) {
-      setItems(data);
+    if (closetData) {
+      const { data: itemData, error: itemError } = await supabase
+        .from("item_data")
+        .select("*");
+
+      if (itemData) {
+        const updatedItems = closetData.map((item: any) => {
+          const associatedItem = itemData.find(
+            (dataItem: any) => dataItem.id === item.id,
+          );
+          if (associatedItem) {
+            return {
+              ...item,
+              category: associatedItem.category,
+              item_name: associatedItem.item_name,
+              colour: associatedItem.colour,
+              brand: associatedItem.brand,
+            };
+          }
+          return item;
+        });
+        setItems(updatedItems);
+      } else {
+        console.error(itemError);
+      }
     } else {
-      console.error(error);
+      console.error(closetError);
     }
   };
 
@@ -32,12 +56,18 @@ const Items: React.FC<ItemsProps> = ({ userID }) => {
       <h1>My Closet</h1>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full">
         {items.map((item: any) => (
-          <img
-            key={item.id}
-            src={`https://vapmcwowofufqkupwqeo.supabase.co/storage/v1/object/public/closet/${userID}/${item.name}`}
-            alt={item.name}
-            className="aspect-square object-contain"
-          />
+          <React.Fragment key={item.id}>
+            <img
+              key={item.id}
+              src={`https://vapmcwowofufqkupwqeo.supabase.co/storage/v1/object/public/closet/${userID}/${item.name}`}
+              alt={"Image"}
+              className="aspect-square object-contain"
+            />
+            <div>Type: {item.category}</div>
+            <div>Name: {item.item_name}</div>
+            <div>Colour: {item.colour}</div>
+            <div>Brand: {item.brand}</div>
+          </React.Fragment>
         ))}
       </div>
     </div>

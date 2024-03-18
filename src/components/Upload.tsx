@@ -16,6 +16,12 @@ const Upload: React.FC<UploadProps> = ({ userID }) => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [processedImage, setProcessedImage] = useState<string | null>(null);
+  const [itemData, setItemData] = useState({
+    item_name: "",
+    category: "",
+    colour: "",
+    brand: "",
+  });
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -53,19 +59,54 @@ const Upload: React.FC<UploadProps> = ({ userID }) => {
                 console.log("Error uploading file:", error);
               } else {
                 console.log("File uploaded:", data);
+                // Supabase storage metadata cannot be used so we need to store the item data in a separate table
+                supabase
+                  .from("item_data")
+                  .insert([
+                    {
+                      // @ts-ignore
+                      id: data.id, // file name identifier
+                      owner: userID,
+                      item_name: itemData.item_name, // users custom name of the item
+                      category: itemData.category, // hoodie, shirt, pants, etc.
+                      colour: itemData.colour,
+                      brand: itemData.brand,
+                    },
+                  ])
+                  .select()
+                  .then(({ data, error }) => {
+                    if (error) {
+                      console.log("Error inserting data:", error);
+                    } else {
+                      console.log("Data inserted:", data);
+                    }
+                  });
               }
             });
         });
-      setUploadedFile(null);
-      setUploadedImage(null);
-      setProcessedImage(null);
+      handleClearUpload();
     }
   };
 
-  const handleCancelUpload = () => {
+  const handleClearUpload = () => {
     setUploadedFile(null);
     setUploadedImage(null);
     setProcessedImage(null);
+    setItemData({
+      item_name: "",
+      category: "",
+      colour: "",
+      brand: "",
+    });
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setItemData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+    // console.log(itemData, value)
   };
 
   return (
@@ -114,10 +155,44 @@ const Upload: React.FC<UploadProps> = ({ userID }) => {
                     </button>
                     <button
                       className="bg-red-400 text-bv-white px-4 py-2 rounded-xl neu-button"
-                      onClick={handleCancelUpload}
+                      onClick={handleClearUpload}
                     >
                       Cancel Upload
                     </button>
+                    <div className="flex flex-col gap-4">
+                      <label htmlFor="item_name">Name</label>
+                      <input
+                        className="bg-gray-100"
+                        type="text"
+                        id="item_name"
+                        value={itemData.item_name}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="category">Category</label>
+                      <input
+                        className="bg-gray-100"
+                        type="text"
+                        id="category"
+                        value={itemData.category}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="colour">Colour</label>
+                      <input
+                        className="bg-gray-100"
+                        type="text"
+                        id="colour"
+                        value={itemData.colour}
+                        onChange={handleInputChange}
+                      />
+                      <label htmlFor="brand">Brand</label>
+                      <input
+                        className="bg-gray-100"
+                        type="text"
+                        id="brand"
+                        value={itemData.brand}
+                        onChange={handleInputChange}
+                      />
+                    </div>
                   </div>
                 </div>
               )}
