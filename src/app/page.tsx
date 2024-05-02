@@ -20,7 +20,8 @@ export default async function Home() {
           <SignOut />
         </div>
       </nav>
-      <main className="flex min-h-screen flex-col items-center justify-between py-20 px-12 md:px-24">
+      <main className="flex min-h-screen flex-col py-20 px-12 md:px-36">
+        <h1 className="text-dark-grey text-2xl font-bold">Your Closet</h1>
         <Items userID={data.user.id} />
         <Upload userID={data.user.id} />
       </main>

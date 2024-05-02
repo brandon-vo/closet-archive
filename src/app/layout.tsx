@@ -3,7 +3,7 @@ import { cabin } from "@/constants/Fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Virtual Closet",
+  title: "Closet Archive",
   description: "A web app to help manage your wardrobe.",
 };
 
