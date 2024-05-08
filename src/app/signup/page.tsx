@@ -11,7 +11,7 @@ export default function SignUpPage() {
         </Link>
         <form className="flex flex-col gap-5 w-[60%]">
           <input
-            className="font-bold rounded-md py-1 px-4"
+            className="icon-input email font-bold rounded-md py-1 px-4"
             id="email"
             name="email"
             type="email"
@@ -19,7 +19,7 @@ export default function SignUpPage() {
             required
           />
           <input
-            className="font-bold rounded-md py-1 px-4"
+            className="icon-input password font-bold rounded-md py-1 px-4"
             id="password"
             name="password"
             type="password"
@@ -27,7 +27,7 @@ export default function SignUpPage() {
             required
           />
           <input
-            className="font-bold rounded-md py-1 px-4"
+            className="icon-input password font-bold rounded-md py-1 px-4"
             id="confirmPassword"
             name="confirmPassword"
             type="password"

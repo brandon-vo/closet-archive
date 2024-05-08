@@ -30,3 +30,23 @@ body {
     inset 2px 2px 2px rgba(255, 255, 255, 0.075),
     inset 2px 2px 4px rgba(0, 0, 0, 0.15);
 }
+
+.icon-input {
+  padding-left: 50px !important;
+  background-size: 20px !important;
+  background-position: 15px !important;
+  background-color: #fefefe !important;
+}
+
+.icon-input.email {
+  background: url("../../public/icons/email.svg") no-repeat left;
+}
+
+.icon-input.password {
+  background: url("../../public/icons/lock.svg") no-repeat left;
+}
+
+.icon-input.google {
+  background: url("../../public/icons/google.svg") no-repeat left;
+  padding-left: 23px !important;
+}
