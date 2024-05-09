@@ -15,7 +15,7 @@ export default function SignUpPage() {
         <Link className="absolute top-5 left-5" href="/login">
           <ArrowBackIcon className="text-dark-grey" />
         </Link>
-        <form className="flex flex-col gap-5 w-[75%]">
+        <form autoComplete="off" className="flex flex-col gap-5 w-[75%]">
           <input
             className="icon-input email input-shadow font-bold rounded-md py-1 px-4"
             id="email"

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
-import { uploadModalState } from "./UploadModal";
+import { uploadModalState } from "./UploadModal/UploadModal";
 
 const UploadButton: React.FC = () => {
   const showUploadModal = useRecoilValue(uploadModalState);
@@ -13,7 +13,7 @@ const UploadButton: React.FC = () => {
   return (
     <div>
       <button
-        className={`w-[40px] h-[40px] rounded-full bg-green-grey text-white z-[3] ${showUploadModal ? "" : "neu-button"}`}
+        className={`w-[40px] h-[40px] rounded-full bg-green-grey text-white z-[3] hover:brightness-95 transition`}
         onClick={() => setShowUploadModal(!showUploadModal)}
       >
         <AddRoundedIcon fontSize="large" />

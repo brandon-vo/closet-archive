@@ -11,9 +11,9 @@ const config: Config = {
       colors: {
         "bv-white": "#FEFEFE",
         "bv-black": "#0A0A0A",
-        timberwolf: "#D3D5D4",
         "lake-blue": "#85A0BB",
         "green-grey": "#9DB5B2",
+        "calm-grey": "#D3D5D4",
         "calm-green": "#D2DDDC",
         "calm-violet": "#A093AB",
         "slate-grey": "#7B818B",

@@ -55,6 +55,7 @@ const Items: React.FC<ItemsProps> = ({ userID }) => {
       {/* TODO make clickable categories */}
       <div className="flex gap-4 md:gap-10">
         <h1 className="text-dark-violet text-xl font-bold">All</h1>
+        <h1 className="text-medium-grey text-xl font-regular">Outer</h1>
         <h1 className="text-medium-grey text-xl font-regular">Tops</h1>
         <h1 className="text-medium-grey text-xl font-regular">Bottoms</h1>
         <h1 className="text-medium-grey text-xl font-regular">Shoes</h1>
