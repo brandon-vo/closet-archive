@@ -15,6 +15,7 @@ const config: Config = {
         "lake-blue": "#85A0BB",
         "green-grey": "#9DB5B2",
         "calm-green": "#D2DDDC",
+        "calm-violet": "#A093AB",
         "slate-grey": "#7B818B",
         "medium-grey": "#60656D",
         "dark-grey": "#4A4E54",

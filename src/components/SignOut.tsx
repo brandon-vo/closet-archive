@@ -17,7 +17,7 @@ export default function SignOut() {
   };
   return (
     <form action={signout}>
-      <button className="bg-dark-violet text-white px-3 py-1.5 rounded-xl neu-button">
+      <button className="absolute top-7 right-7 text-calm-violet drop-shadow">
         <LogoutIcon />
       </button>
     </form>

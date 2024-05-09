@@ -1,11 +1,14 @@
-import type { Metadata } from "next";
+"use client";
+
+// import type { Metadata } from "next";
 import { cabin } from "@/constants/Fonts";
 import "./globals.css";
+import { RecoilRoot } from "recoil";
 
-export const metadata: Metadata = {
-  title: "Closet Archive",
-  description: "A web app to help manage your wardrobe.",
-};
+// export const metadata: Metadata = {
+//   title: "Closet Archive",
+//   description: "A web app to help manage your wardrobe.",
+// };
 
 export default function RootLayout({
   children,
@@ -13,8 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cabin.className}>{children}</body>
-    </html>
+    <RecoilRoot>
+      <html lang="en">
+        <body className={cabin.className}>{children}</body>
+      </html>
+    </RecoilRoot>
   );
 }

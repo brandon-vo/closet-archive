@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
-import { useEffect, useState } from "react";
 
 interface ItemsProps {
   userID: string;
@@ -52,17 +51,17 @@ const Items: React.FC<ItemsProps> = ({ userID }) => {
   }, []);
 
   return (
-    <div className="my-2">
+    <div className="flex flex-col my-2 h-screen pb-44">
       {/* TODO make clickable categories */}
       <div className="flex gap-4 md:gap-10">
-        <h1 className="text-medium-grey text-xl font-bold">All</h1>
-        <h1 className="text-medium-grey text-xl font-bold">Tops</h1>
-        <h1 className="text-medium-grey text-xl font-bold">Bottoms</h1>
-        <h1 className="text-medium-grey text-xl font-bold">Shoes</h1>
-        <h1 className="text-medium-grey text-xl font-bold">Accessories</h1>
+        <h1 className="text-dark-violet text-xl font-bold">All</h1>
+        <h1 className="text-medium-grey text-xl font-regular">Tops</h1>
+        <h1 className="text-medium-grey text-xl font-regular">Bottoms</h1>
+        <h1 className="text-medium-grey text-xl font-regular">Shoes</h1>
+        <h1 className="text-medium-grey text-xl font-regular">Accessories</h1>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full scrollbar overflow-y-scroll mt-4">
         {items.map((item: any) => (
           <React.Fragment key={item.id}>
             <img
@@ -71,10 +70,10 @@ const Items: React.FC<ItemsProps> = ({ userID }) => {
               alt={"Image"}
               className="aspect-square object-contain"
             />
-            <div>Type: {item.category}</div>
+            {/* <div>Type: {item.category}</div>
             <div>Name: {item.item_name}</div>
             <div>Colour: {item.colour}</div>
-            <div>Brand: {item.brand}</div>
+            <div>Brand: {item.brand}</div> */}
           </React.Fragment>
         ))}
       </div>

@@ -1,17 +1,23 @@
 import { lora } from "@/constants/Fonts";
 import { signUp } from "./actions";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Link from "next/link";
 
 export default function SignUpPage() {
   return (
-    <main className="flex justify-center items-center w-screen h-screen">
-      <section className="relative flex justify-center items-center bg-calm-green w-[30vw] h-[30vw] min-w-[400px] min-h-[400px] rounded-xl">
+    <main className="flex flex-col justify-center items-center w-screen h-screen">
+      <h1
+        className={`title-shadow text-[10vh] font-bold uppercase text-dark-grey ${lora.className}`}
+      >
+        Sign Up
+      </h1>
+      <section className="panel-shadow relative flex justify-center items-center bg-calm-green w-[30vw] h-[20vw] min-w-[400px] min-h-[300px] rounded-xl">
         <Link className="absolute top-5 left-5" href="/login">
-          <span>Go Back</span>
+          <ArrowBackIcon className="text-dark-grey" />
         </Link>
-        <form className="flex flex-col gap-5 w-[60%]">
+        <form className="flex flex-col gap-5 w-[75%]">
           <input
-            className="icon-input email font-bold rounded-md py-1 px-4"
+            className="icon-input email input-shadow font-bold rounded-md py-1 px-4"
             id="email"
             name="email"
             type="email"
@@ -19,7 +25,7 @@ export default function SignUpPage() {
             required
           />
           <input
-            className="icon-input password font-bold rounded-md py-1 px-4"
+            className="icon-input password input-shadow font-bold rounded-md py-1 px-4"
             id="password"
             name="password"
             type="password"
@@ -27,7 +33,7 @@ export default function SignUpPage() {
             required
           />
           <input
-            className="icon-input password font-bold rounded-md py-1 px-4"
+            className="icon-input password input-shadow font-bold rounded-md py-1 px-4"
             id="confirmPassword"
             name="confirmPassword"
             type="password"
@@ -36,7 +42,7 @@ export default function SignUpPage() {
           />
           <div className="flex justify-center gap-1">
             <button
-              className="bg-lake-blue font-bold rounded-full text-bv-white rounded-full py-2 w-full"
+              className="button-shadow bg-lake-blue font-bold rounded-full text-bv-white rounded-full py-2 w-full"
               formAction={signUp}
             >
               Sign Up

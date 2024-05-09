@@ -8,29 +8,6 @@ body {
   background-color: #fefefe;
 }
 
-.neu-button {
-  box-shadow:
-    -4px -6px 14px rgba(255, 255, 255, 0.7),
-    -6px -6px 10px rgba(255, 255, 255, 0.5),
-    4px 6px 8px rgba(255, 255, 255, 0.075),
-    4px 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.neu-button:hover {
-  box-shadow:
-    -2px -2px 6px rgba(255, 255, 255, 0.6),
-    -2px -2px 4px rgba(255, 255, 255, 0.4),
-    2px 2px 2px rgba(255, 255, 255, 0.05),
-    2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-.neu-button:active {
-  box-shadow:
-    inset -2px -2px 6px rgba(255, 255, 255, 0.7),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 2px rgba(255, 255, 255, 0.075),
-    inset 2px 2px 4px rgba(0, 0, 0, 0.15);
-}
-
 .icon-input {
   padding-left: 50px !important;
   background-size: 20px !important;
@@ -49,4 +26,39 @@ body {
 .icon-input.google {
   background: url("../../public/icons/google.svg") no-repeat left;
   padding-left: 23px !important;
+}
+
+.title-shadow {
+  text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.panel-shadow {
+  box-shadow: inset 2px 0px 10px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-shadow {
+  box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.1);
+}
+
+.button-shadow {
+  box-shadow: inset 0px 2px 6px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-bar-shadow {
+  box-shadow: 0px 0px 11px 9px rgba(0, 0, 0, 0.1);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 15px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 10vh;
+  background: #f7f4ed;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #d2dddc;
+  border-radius: 100vh;
+  border: 3px solid #f6f7ed;
 }

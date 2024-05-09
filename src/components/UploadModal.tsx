@@ -1,18 +1,24 @@
 "use client";
 
-import { createClient } from "@/utils/supabase/client";
 import { useState } from "react";
+import { atom, useRecoilValue, useSetRecoilState } from "recoil";
+import { createClient } from "@/utils/supabase/client";
 import { v4 as uuidv4 } from "uuid";
-import imglyRemoveBackground from "@imgly/background-removal";
-import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import CloseIcon from "@mui/icons-material/Close";
+import imglyRemoveBackground from "@imgly/background-removal";
 
-interface UploadProps {
+interface UploadModalProps {
   userID: string;
 }
 
-const Upload: React.FC<UploadProps> = ({ userID }) => {
-  const [showUploadModal, setShowUploadModal] = useState(false);
+export const uploadModalState = atom({
+  key: "uploadModalState",
+  default: false,
+});
+
+const UploadModal: React.FC<UploadModalProps> = ({ userID }) => {
+  const showUploadModal = useRecoilValue(uploadModalState);
+  const setShowUploadModal = useSetRecoilState(uploadModalState);
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [processedImage, setProcessedImage] = useState<string | null>(null);
@@ -110,19 +116,12 @@ const Upload: React.FC<UploadProps> = ({ userID }) => {
   };
 
   return (
-    <div>
-      <button
-        className={`fixed right-[50px] bottom-[50px] w-[50px] h-[50px] rounded-full bg-green-grey text-white z-[3] ${showUploadModal ? "" : "neu-button"}`}
-        onClick={() => setShowUploadModal(!showUploadModal)}
-      >
-        <AddRoundedIcon fontSize="large" />
-      </button>
-
+    <>
       {showUploadModal && (
         <>
-          <div className="fixed inset-0 bg-black/[0.5]" />
+          <div className="fixed inset-0 bg-black/[0.5] z-[9]" />
           <div
-            className="fixed top-0 left-0 w-full h-full flex items-center justify-center"
+            className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-[10]"
             onClick={() => setShowUploadModal(false)}
           >
             <div
@@ -200,8 +199,8 @@ const Upload: React.FC<UploadProps> = ({ userID }) => {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 };
 
-export default Upload;
+export default UploadModal;
