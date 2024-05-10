@@ -13,7 +13,7 @@ export async function signUp(formData: FormData) {
   const confirmPassword = formData.get("confirmPassword") as string;
 
   if (password !== confirmPassword) {
-    console.log("Passwords do not match");
+    // console.log("Passwords do not match");
     redirect("/error");
   }
 
@@ -25,9 +25,11 @@ export async function signUp(formData: FormData) {
   const { error } = await supabase.auth.signUp(data);
 
   if (error) {
+    // console.log(error)
     redirect("/error");
   }
 
+  // console.log("Please check your email to verify your account")
   revalidatePath("/", "layout");
   redirect("/");
 }

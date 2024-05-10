@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
-import { atom, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { uploadModalState } from "./UploadModal/UploadModal";
 
 const UploadButton: React.FC = () => {

@@ -42,7 +42,7 @@ export default function SignUpPage() {
           />
           <div className="flex justify-center gap-1">
             <button
-              className="button-shadow bg-lake-blue font-bold rounded-full text-bv-white rounded-full py-2 w-full"
+              className="button-shadow bg-lake-blue font-bold rounded-full text-bv-white rounded-full py-2 w-full hover:brightness-95 transition"
               formAction={signUp}
             >
               Sign Up

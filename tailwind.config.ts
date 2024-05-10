@@ -16,6 +16,7 @@ const config: Config = {
         "calm-grey": "#D3D5D4",
         "calm-green": "#D2DDDC",
         "calm-violet": "#A093AB",
+        "light-grey": "#c3c6c9",
         "slate-grey": "#7B818B",
         "medium-grey": "#60656D",
         "dark-grey": "#4A4E54",

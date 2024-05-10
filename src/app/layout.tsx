@@ -1,14 +1,8 @@
 "use client";
 
-// import type { Metadata } from "next";
 import { cabin } from "@/constants/Fonts";
 import "./globals.css";
 import { RecoilRoot } from "recoil";
-
-// export const metadata: Metadata = {
-//   title: "Closet Archive",
-//   description: "A web app to help manage your wardrobe.",
-// };
 
 export default function RootLayout({
   children,

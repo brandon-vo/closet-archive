@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Closet Archive
 
-## Getting Started
+[closet-archive.vercel.app](https://closet-archive.vercel.app/)
 
-First, run the development server:
+A web app to digitally organize your wardrobe by uploading images of your clothes  
+Users may create an account with an email address to get access to their own closet  
+Background images are removed with [imgly/background-removal.js](https://github.com/imgly/background-removal-js)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Built with React, Next.js, Tailwind CSS, Supabase, Recoil  
+Since I am using the free version of Supabase, this project will unfortunately become paused after 1 week of inactivity
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+TODO:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Allow modifying the properties of previously added closet items
+- Add item descriptions/notes
+- Google sign in
+- Outfit maker feature
+- Calendar with daily notifications to create and save the outfits you've worn
+- Settings with password reset
+- Mobile photo uploading directly from camera
+- Better account creation flow
+- Optimizations
